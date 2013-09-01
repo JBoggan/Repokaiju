@@ -10,7 +10,29 @@ def permuteLines(array)
 	return array
 end
 
+def dropRandom(array)
+	length = array.length
+	index = @prng.rand(1..length-1)
+	array.delete_at(index)
+	return array
+end
+
+def cloneRandom(array)
+	length = array.length
+	index = @prng.rand(1..length-1)
+	insertIndex = @prng.rand(1..length-1)
+	extra = array[index]
+	array.insert(insertIndex, extra)
+	return array
+end
+
+
 STDIN.each do |line|
 	codeArray << line.chomp
 end
-puts permuteLines(codeArray)
+
+codeArray = permuteLines(codeArray)
+codeArray = dropRandom(codeArray)
+codeArray = cloneRandom(codeArray)
+puts codeArray
+
