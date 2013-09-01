@@ -3,7 +3,7 @@ codeArray  = []
 
 def permuteLines(array)
 	length = array.length
-	index = @prng.rand(1..length)
+	index = @prng.rand(1..length-1)
 	temp = array[index]
 	array[index] = array[index-1]
 	array[index-1] = temp
